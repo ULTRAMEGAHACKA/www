@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <aside>
+        <h2>DDDDDDDDDD</h2>
+        <p id="statusfield"></p>
+    </aside>
+    <section>
+        {% for row in processed_files %}
+                <h2>
+                    Идентификатор: {{row[0]}}
+                </h2>
+                <h3>
+                    Имя: {{row[1]}}
+                </h3>
+                <p>
+                    Дата обработки: {{row[2]}}
+                </p>
+            {% endfor %}
+    </section>
+
+{% endblock %}

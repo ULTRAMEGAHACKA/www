@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <aside>
+      <h2>Menu</h2>
+      <nav>
+        <ul class="aside-menu">
+            {% for subj in subjs %}
+              <li><a href="/">{{subj}}</a></li>
+            {% endfor %}
+            {% if aside_menu %}
+					<nav>
+						<ul class="aside-menu">
+							{% for subj in aside_menu %}
+								<li><a href="{{subj.addr}}">{{subj.name}}</a></li>
+							{% endfor %}
+						</ul>
+					</nav>
+				{% endif %}
+        </ul>
+      </nav>
+    </aside>
+    <article>
+        <section>
+            {% for row in processed_files %}
+                <h2>
+                    Идентификатор: {{row[0]}}
+                </h2>
+                <h3>
+                    Имя: {{row[1]}}
+                </h3>
+                <p>
+                    Дата обработки: {{row[2]}}
+                </p>
+            {% endfor %}
+        </section>
+        <section>
+            {% for image in imgs %}
+                <figure><img src="/static/images/{{image}}" alt=""></figure>
+            {% endfor %}
+        </section>
+    </article>
+
+{% endblock %}
